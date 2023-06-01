@@ -1,0 +1,8 @@
+django==3.2.7
+djangorestframework
+gunicorn
+pillow
+psycopg2-binary
+django-environ
+djando-redis==5.0.0
+celery
