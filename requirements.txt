@@ -4,5 +4,5 @@ gunicorn
 pillow
 psycopg2-binary
 django-environ
-djando-redis==5.0.0
+django-redis==5.0.0
 celery

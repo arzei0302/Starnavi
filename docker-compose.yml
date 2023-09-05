@@ -23,6 +23,29 @@ services:
     entrypoint: ./wsgi-entrypoint.sh
     depends_on:
       - db
+
+  redis:
+    restart: always
+    container_name: starnavi_redis
+    image: redis:alpine
+
+
+  celery:
+    image: celery
+    container_name: starnavi_celery
+    command: celery -A starnavi worker -l info
+
+
+    build:
+      context: .
+    volumes:
+      - ./:/app
+    depends_on:
+      - db
+      - web
+      - redis
+    restart: always
+    
       
 
 

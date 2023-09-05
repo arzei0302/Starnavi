@@ -110,7 +110,7 @@ class RegistrationView(APIView):
             email=email,
         )
 
-        end_msgs(email)
+        end_msgs.delay(email)
 
         token = Token.objects.create(user=user)
         return Response({'token': token.key}, HTTP_201_CREATED)
